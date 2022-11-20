@@ -23,9 +23,12 @@ sudo ip link set dev gbveth master br0
 sudo ip link set dev rbveth up
 sudo ip link set dev gbveth up
 
-sudo ip netns exec red ip addr add 192.168.0.2/24 dev rveth
-sudo ip netns exec green ip addr add 192.168.0.3/24 dev gveth
+sudo ip netns exec red ip addr add 192.168.0.10/24 dev rveth
+sudo ip netns exec green ip addr add 192.168.0.20/24 dev gveth
 
-sudo ip netns exec red ip route add default via 192.168.0.2 dev rveth
-sudo ip netns exec green ip route add default via 192.168.0.3 dev gveth
+sudo ip netns exec red ip route add default via 192.168.0.1 dev rveth
+sudo ip netns exec green ip route add default via 192.168.0.1 dev gveth
+
+sudo iptables -t nat -F
+sudo iptables -t nat -A POSTROUTING -s 192.168.0.1/16 ! -o br0 -j MASQUERADE
 
