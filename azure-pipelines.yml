@@ -32,9 +32,9 @@ pool:
 steps:
 - script: echo $(ansibleInventory)
 - script: echo $(ansiblePassword)
-- task: Bash@3
+- task: PowerShell@2
   inputs:
-    filePath: 'test.sh'
+    filePath: 'test.ps1'
 
 # stages:
 # - template: pipeline_templates/release.yml@templates
