@@ -5,14 +5,21 @@
 #       name: BMO-Prod/template_repo
 #       endpoint: github.com_sa-onboarding_bmogc
 #       ref: refs/tags/v1.1.0
+# trigger:
+#   branches:
+#     include:
+#     - dev
+#     - main
+#     - releases/*
+#     - hotfixes/*
+#     - features/*
 trigger:
   branches:
     include:
-    - dev
-    - main
-    - releases/*
-    - hotfixes/*
-    - features/*
+      - main
+  paths:
+    include:
+      - '*'
 
 
 resources:
@@ -35,6 +42,9 @@ steps:
 - task: PowerShell@2
   inputs:
     filePath: 'test.ps1'
+- script: |
+      echo $(Build.SourceBranch) # This will output the source branch name in the format 'refs/heads/<branch-name>'
+      echo $(Build.SourceBranchName) # This will output the source branch name without the 'refs/heads/' prefix
 
 # stages:
 # - template: pipeline_templates/release.yml@templates
