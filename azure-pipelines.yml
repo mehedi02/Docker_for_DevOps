@@ -9,6 +9,9 @@
 variables:
 - group: AnsibleVar
 
+pool:
+  name: $(envName)
+
 steps:
 - script: echo $(envName)
 - script: echo $(ansiblePassword)
