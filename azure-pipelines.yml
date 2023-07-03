@@ -5,6 +5,15 @@
 #       name: BMO-Prod/template_repo
 #       endpoint: github.com_sa-onboarding_bmogc
 #       ref: refs/tags/v1.1.0
+trigger:
+  branches:
+    include:
+    - dev
+    - main
+    - releases/*
+    - hotfixes/*
+    - features/*
+
 
 resources:
   repositories:
