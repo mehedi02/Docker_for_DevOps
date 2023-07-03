@@ -43,7 +43,6 @@ steps:
 - script: |
       # echo $(Build.SourceBranch) # This will output the source branch name in the format 'refs/heads/<branch-name>'
       echo $(Build.SourceBranchName) 
-      # This will output the source branch name without the 'refs/heads/' prefix
 
 # stages:
 # - template: pipeline_templates/release.yml@templates
