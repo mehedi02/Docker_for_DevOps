@@ -10,7 +10,7 @@ variables:
 - group: AnsibleVar
 
 pool:
-  name: Dev
+  name: Default
 
 steps:
 - script: echo $(envName)
