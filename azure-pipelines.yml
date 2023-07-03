@@ -15,11 +15,9 @@
 #     - features/*
 trigger:
   branches:
-    exclude:
-      - main
-  paths:
     include:
-      - '*'
+      - stage*
+
 
 
 resources:
