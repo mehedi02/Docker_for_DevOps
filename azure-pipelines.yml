@@ -15,7 +15,7 @@
 #     - features/*
 trigger:
   branches:
-    include:
+    exclude:
       - main
   paths:
     include:
