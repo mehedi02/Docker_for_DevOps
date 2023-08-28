@@ -1,2 +1,2 @@
 # Docker_for_DevOps
-Hello world
+Create Network namespace using bash and test the connectivity

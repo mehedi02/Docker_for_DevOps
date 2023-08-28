@@ -29,6 +29,8 @@ sudo ip netns exec green ip addr add 192.168.0.20/24 dev gveth
 sudo ip netns exec red ip route add default via 192.168.0.1 dev rveth
 sudo ip netns exec green ip route add default via 192.168.0.1 dev gveth
 
-sudo iptables -t nat -F
+sudo sysctl -w net.ipv4.ip_forward=1
+
+# sudo iptables -t nat -F
 sudo iptables -t nat -A POSTROUTING -s 192.168.0.1/16 ! -o br0 -j MASQUERADE
 
